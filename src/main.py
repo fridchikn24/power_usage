@@ -8,7 +8,7 @@ def main():
     logger.info("running the application...")
 
     df = load_data_from_csv()
-    ml_svc = ModelService(df )
+    ml_svc = ModelService(df)
     ml_svc.load_model()
 
     

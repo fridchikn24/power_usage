@@ -10,6 +10,7 @@ import pickle as pkl
 from model_pipeline.preparation import DataPrepper
 import mlflow
 import mlflow.sklearn
+import joblib
 
 
 class ModelTrainer:
@@ -99,3 +100,8 @@ class ModelTrainer:
         logger.info(f"R^2: {r2:.3f}")
 
         return {"mae": mae,  "r2": r2}
+    
+    def save_model(self, path="trained_model.pkl"):
+        logger.info(f"Saving model to {path}...")
+        joblib.dump(self.model, path)
+        logger.info("Model saved.")
